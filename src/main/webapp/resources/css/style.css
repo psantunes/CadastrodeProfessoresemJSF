@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+}
+body {
+  background-color: #f7f2ee;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+}
+ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+  
+}

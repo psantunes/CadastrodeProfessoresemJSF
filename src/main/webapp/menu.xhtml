@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core">
+  <h:head>
+      <title>Menu da aplicação</title>
+  	  <h:outputStylesheet library="css" name="bootstrap.min.css" />
+	  <h:outputStylesheet library="css" name="style.css" />
+	  <link rel="shortcut icon" href="#{resource['images/favicon.ico']}" type="image/x-icon" />
+
+  </h:head>
+  <h:body>
+
+    <h:panelGroup layout="block" styleClass="content container-fluid py-5">
+
+		<h:panelGroup layout="block" styleClass="col-12">
+
+	    	<h2 class="mb-5 text-center">Olá <span class="text-capitalize">#{usuarioBean.usuario.nome}</span>,<br></br>escolha uma das opções abaixo:</h2>
+
+            <h:panelGroup layout="block" styleClass="offset-sm-4 col-sm-4">
+            	<h:link value="Cadastra professor efetivo" outcome="cadastrar_efetivo" styleClass="btn btn-secondary col-12 mb-2"/>
+                <h:link value="Listar professor efetivo" outcome="listar_efetivo" styleClass="btn btn-secondary col-12 mb-2" />
+                <h:link value="Cadastra professor horista" outcome="cadastrar_horista" styleClass="btn btn-secondary col-12 mb-2"/>
+                <h:link value="Listar professor horista" outcome="listar_horista" styleClass="btn btn-secondary col-12 mb-2"/>
+                <h:link value="Sair" outcome="index" styleClass="btn btn-secondary col-12" />
+	  		</h:panelGroup>
+
+  		</h:panelGroup>
+
+ 	</h:panelGroup>
+
+	<footer class="footer py-3 bg-dark">
+	    <div class="container-fluid text-center">
+	        <span class="text-white">Desenvolvido por <a href="https://github.com/psantunes/" target="_blank">Antonio Paulo Serpa Antunes</a></span>
+	    </div>
+	</footer>
+
+    </h:body>
+</html>
+

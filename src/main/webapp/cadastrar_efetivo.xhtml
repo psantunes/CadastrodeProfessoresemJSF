@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core">
+
+
+    <h:head>
+        <title>Cadastra professor efetivo</title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css" />
+		<h:outputStylesheet library="css" name="style.css" />
+		<link rel="shortcut icon" href="#{resource['images/favicon.ico']}" type="image/x-icon" />
+    </h:head>
+    <h:body>
+
+    		<h:panelGroup layout="block" styleClass="content container-fluid py-5">
+    
+	    		<h:panelGroup layout="block" styleClass="offset-sm-2 col-sm-8">
+
+	    		
+ 		        <h2 class="pb-2 text-center">cadastra professor efetivo</h2>
+
+		        <h:form>
+	            <h:messages showDetail="false" showSummary="true" id="messages" 
+					errorClass="alert alert-danger" infoClass="alert alert-success"
+					warnClass="alert alert-warning" fatalClass="alert alert-dark" />
+
+                <h:panelGroup layout="block" styleClass="form-group">
+
+                  <h:outputLabel value="Nome:"/>
+                  <h:inputText id="nome" value="#{professorEfetivoBean.professorefetivo.nome}" required="true" requiredMessage="Campo nome é obrigatório." label="nome" styleClass="form-control"> 
+                      <f:validateLength minimum="10" maximum="100" />
+                      <f:validateRegex pattern="[A-zÀ-ú ]+" />
+                  </h:inputText>
+
+                  <h:outputLabel value="Matrícula:"/>
+                  <h:inputText id="matricula" value="#{professorEfetivoBean.professorefetivo.matricula}" required="true" requiredMessage="Campo matrícula é obrigatório." label="matricula"  styleClass="form-control"> 
+                      <f:validateLength minimum="4" maximum="20" />
+                  </h:inputText>
+
+                  <h:outputLabel value="Salário:"/>
+                  <h:inputText id="salario" value="#{professorEfetivoBean.professorefetivo.salario}" required="true" requiredMessage="Campo salário é obrigatório." label="salario" styleClass="form-control"> 
+                      <f:validateLength minimum="4" />
+                  </h:inputText>
+
+                </h:panelGroup>
+                <h:panelGroup layout="block" styleClass="col-12 py-3 text-center">
+
+
+                    <h:commandButton value="Cadastrar" action="#{professorEfetivoBean.cadastra()}" styleClass="btn btn-primary" />
+					<h:commandButton value="Limpar" action="#{professorEfetivoBean.limpa}"  styleClass="btn btn-secundary" />
+		
+                </h:panelGroup>
+		        </h:form>
+
+
+		        <h:panelGroup layout="block" styleClass="col-12 py-3 text-center">
+		                <h:link value="VOLTAR" outcome="menu.xhtml" />
+		        </h:panelGroup>
+
+	    		</h:panelGroup>
+
+    		</h:panelGroup>
+
+	<footer class="footer py-3 bg-dark">
+	    <div class="container-fluid text-center">
+	        <span class="text-white">Desenvolvido por <a href="https://github.com/psantunes/" target="_blank">Antonio Paulo Serpa Antunes</a></span>
+	    </div>
+	</footer>
+
+
+    </h:body>
+</html>
+

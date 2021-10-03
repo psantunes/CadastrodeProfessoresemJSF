@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+		  <h:form>
+
+				<h4 class="text-center">Faça seu login</h4>
+                <h:panelGroup layout="block" styleClass="form-group">
+			            <h:messages showDetail="false" showSummary="true" id="messages" 
+							errorClass="alert alert-danger" infoClass="alert alert-success"
+							warnClass="alert alert-warning" fatalClass="alert alert-dark" />
+				</h:panelGroup>
+
+                <h:panelGroup layout="block" styleClass="form-group">
+
+						<h:outputLabel value="Nome: " />
+						<h:inputText id="nome"
+							value="#{usuarioBean.usuario.nome}" required="true" requiredMessage="Campo nome é obrigatório."
+							label="nome"
+							styleClass="form-control">
+							<f:validateLength minimum="5" maximum="20" />
+						</h:inputText>
+						<h:outputLabel value="Senha: " />
+						<h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}"
+							required="true" requiredMessage="Campo senha é obrigatório." label="senha"
+							 styleClass="form-control">
+							<f:validateLength minimum="5" maximum="20" />
+						</h:inputSecret>
+						<h:commandButton value="Login" action="#{usuarioBean.validar()}" styleClass="btn btn-primary mt-3" />
+						<h:commandButton value="Limpar" type="reset" styleClass="btn btn-secundary mt-3" />
+				</h:panelGroup>
+		  </h:form>
+
+</ui:composition>

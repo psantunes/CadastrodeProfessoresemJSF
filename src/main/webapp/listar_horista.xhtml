@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Lista professores horistas</title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css" />
+		<h:outputStylesheet library="css" name="style.css" />
+ 	    <link rel="shortcut icon" href="#{resource['images/favicon.ico']}" type="image/x-icon" />
+
+	    <script type="text/javascript">
+	     function excluir() {
+	         if (confirm("Você tem certeza que quer excluir?")) {
+	             return true;
+	         } else {
+	             return false;
+	         }
+	     }
+	    </script>
+
+    </h:head>
+    <h:body>
+
+
+    		<h:panelGroup layout="block" styleClass="content container-fluid py-5">
+    
+	    		<h:panelGroup layout="block" styleClass="offset-sm-2 col-sm-8 text-center">
+	    		
+			       <h2 class="pb-2">lista professor horista</h2>
+	    		
+	    
+		            <h:messages showDetail="false" showSummary="true" id="messages" 
+					errorClass="alert alert-danger" infoClass="alert alert-success"
+					warnClass="alert alert-warning" fatalClass="alert alert-dark" />
+				    <h:form>
+	                <h:dataTable value="#{professorHoristaBean.lista}" var="professorhorista" styleClass="table table-striped">
+	                    <h:column>
+	                        <f:facet name="header">Nome</f:facet>
+	                        #{professorhorista.nome}
+	                    </h:column>
+	                    <h:column>
+	                        <f:facet name="header">Nro Matrícula</f:facet>
+	                        #{professorhorista.matricula}
+	                    </h:column>
+	                    <h:column>
+	                        <f:facet name="header">Total de Horas</f:facet>
+	                        #{professorhorista.totalHoras}
+	                    </h:column>
+	                    <h:column>
+	                        <f:facet name="header">Valor por Hora</f:facet>
+	                        #{professorhorista.valorHora}
+	                    </h:column>
+                        <h:column>
+                            <h:commandButton value="Editar" action="#{professorHoristaBean.editar(professorhorista)}" styleClass="btn btn-primary"  />
+                        </h:column>
+                        <h:column>
+                            <h:commandButton value="Excluir" action="#{professorHoristaBean.excluir(professorhorista)}" onclick="return excluir()" styleClass="btn btn-danger" />
+                        </h:column>
+	
+	                </h:dataTable>
+			        </h:form>
+	
+
+		        <h:panelGroup>
+		                <h:link value="VOLTAR" outcome="menu.xhtml"/>
+		        </h:panelGroup>
+
+	    		</h:panelGroup>
+
+
+
+    		</h:panelGroup>
+
+
+	<footer class="footer py-3 bg-dark">
+	    <div class="container-fluid text-center">
+	        <span class="text-white">Desenvolvido por <a href="https://github.com/psantunes/" target="_blank">Antonio Paulo Serpa Antunes</a></span>
+	    </div>
+	</footer>
+
+
+    </h:body>
+</html>
